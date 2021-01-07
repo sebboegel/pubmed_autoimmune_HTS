@@ -363,6 +363,9 @@ result_df[result_df$assay=="PhIP-Seq",]$assay_main="Other"
 result_df[result_df$disease=="Systemic Lupus Erythematosus",]$disease="SLE"
 
 result_df[result_df$disease=="Rheumatoid Arthritis",]$disease="RA"
+result_df[result_df$disease=="Inflammatory Bowel Disease",]$disease="IBD"
+result_df[result_df$disease=="Autoimmune Liver Disease",]$disease="ALD"
+result_df[result_df$disease==" Hashimoto Thyroiditis",]$disease="Autoimmune Thyroiditis"
 
 
 saveRDS(result_df,file="/Users/sebastian/pubmed_autoimmune_HTS/result_df_26Oct2020.RDS")
@@ -402,7 +405,7 @@ ggplot(data=subset(result_df_unique, result_df_unique$assay %in% c("scRNA-Seq","
   theme(axis.text.x = element_text(angle = 90, hjust = 1, size=13, colour="black"), 
         axis.title.x = element_blank(), axis.text.y=element_text(colour="black", size = 13), axis.title.y=element_text(colour="black", size = 14)) +
   theme(legend.title = element_blank()) +
-  scale_fill_brewer(palette = "Paired") + scale_y_continuous(breaks=seq(0,25,5)) +
+  scale_fill_brewer(palette = "Paired") + scale_y_continuous(breaks=seq(0,35,5)) +
   theme(axis.line = element_line(size=1, colour = "black"), panel.grid.major = element_line(colour = "#d3d3d3"), 
         panel.grid.minor = element_blank(), panel.background = element_blank())
 
@@ -476,43 +479,48 @@ length(unique(result_df[result_df$assay %in% c("Epigenomics","Epigenomics,WGS","
 #no datasets: FMF, enthesitis, polychondritis
 #gout: only cancer datasets
 #-----------Figure 4 -------SRA datasets
-sra_datasets <- read.delim("/Users/sebastian/pubmed_rheuma_HTS/sra_assays.tsv")
+sra_datasets <- read.delim("/Users/sebastian/pubmed_autoimmune_HTS/sra_assays.tsv")
 sra_datasets=as.data.frame(sra_datasets)
 sra_datasets$assay=as.character(sra_datasets$assay)
+sra_datasets[sra_datasets$assay=="est",]$assay="other"
+
 sra_datasets[sra_datasets$assay=="chip",]$assay="Epigenomics"
 sra_datasets[sra_datasets$assay=="chip-seq",]$assay="Epigenomics"
-sra_datasets[sra_datasets$assay=="mirna-seq",]$assay="miRNA/ncRNA-Seq"
-sra_datasets[sra_datasets$assay=="ncrna-seq",]$assay="miRNA/ncRNA-Seq"
+sra_datasets[sra_datasets$assay=="mirna-seq",]$assay="miRNA/ncRNA/RIP-Seq"
+sra_datasets[sra_datasets$assay=="ncrna-seq",]$assay="miRNA/ncRNA/RIP-Seq"
+sra_datasets[sra_datasets$assay=="rip-seq",]$assay="miRNA/ncRNA/RIP-Seq"
 #Methylation=Bisulfite-Seq, MEDIP-Seq/MRE-Seq
 sra_datasets[sra_datasets$assay=="bisulfite-seq",]$assay="Epigenomics"
 sra_datasets[sra_datasets$assay=="atac-seq",]$assay="Epigenomics"
 sra_datasets[sra_datasets$assay=="dnase-hypersensitivity",]$assay="Epigenomics"
 sra_datasets[sra_datasets$assay=="medip-seq",]$assay="Epigenomics"
-sra_datasets[sra_datasets$assay=="mre-seq",]$assay="Epigenomics"
+#sra_datasets[sra_datasets$assay=="mre-seq",]$assay="Epigenomics"
 sra_datasets[sra_datasets$assay=="amplicon",]$assay="Targeted-capture"
 sra_datasets[sra_datasets$assay=="targeted-capture",]$assay="Targeted-capture"
 sra_datasets[sra_datasets$assay=="rna-seq",]$assay="RNA-Seq"
+
+sra_datasets[sra_datasets$assay=="fl-cdna",]$assay="RNA-Seq"
 sra_datasets[sra_datasets$assay=="wgs",]$assay="WGS"
 sra_datasets[sra_datasets$assay=="wxs",]$assay="WXS"
-sra_datasets[sra_datasets$assay=="tn-seq",]$assay="TN-Seq"
+#sra_datasets[sra_datasets$assay=="tn-seq",]$assay="TN-Seq"
 sra_datasets[sra_datasets$assay=="mbd-seq",]$assay="MBD-Seq"
 sra_datasets[sra_datasets$assay=="hi-c",]$assay="Hi-C"
 sra_datasets[sra_datasets$assay=="other",]$assay="Other"
 sra_datasets$disease=as.character(sra_datasets$disease)
 sra_datasets$samples=as.integer(sra_datasets$samples)
-sra_datasets[sra_datasets$disease=="MyoPolyDerma",]$disease="(poly/derma)myositis"
-sra_datasets[sra_datasets$disease=="SysSclerosis",]$disease="Systemic Sclerosis"
-sra_datasets[sra_datasets$disease=="Sjoegren",]$disease="Sjögren's Syndrome"
+#sra_datasets[sra_datasets$disease=="MyoPolyDerma",]$disease="(poly/derma)myositis"
+#sra_datasets[sra_datasets$disease=="SysSclerosis",]$disease="Systemic Sclerosis"
+#sra_datasets[sra_datasets$disease=="Sjoegren",]$disease="Sjögren's Syndrome"
 df2=sra_datasets%>%
   group_by(disease)%>%
   summarise(samples=sum(samples))
 sra_datasets$disease=factor(sra_datasets$disease,levels=df2[order(df2$samples,decreasing = TRUE),]$disease)
 ggplot(data=sra_datasets, aes(x=disease,y=samples,fill=assay)) + geom_bar(position="stack",stat="identity") +
-  geom_text(data = df2, aes(x=disease,y=9000,label=samples,angle=60),inherit.aes = FALSE) +
+  geom_text(data = df2, aes(x=disease,y=30000,label=samples,angle=60),inherit.aes = FALSE) +
   theme(axis.text.x = element_text(angle = 90, hjust = 1, size=13, colour="black"), 
         axis.title.x = element_blank(), axis.text.y=element_text(colour="black", size = 13), axis.title.y=element_text(colour="black", size = 14)) +
   theme(legend.title = element_blank()) +
-  scale_fill_brewer(palette = "Paired") + scale_y_continuous(breaks=seq(0,9000,1000)) +
+  scale_fill_brewer(palette = "Paired") + scale_y_continuous(breaks=seq(0,30000,5000)) +
   theme(axis.line = element_line(size=1, colour = "black"), panel.grid.major = element_line(colour = "#d3d3d3"), 
         panel.grid.minor = element_blank(), panel.background = element_blank())
 #Figure S5 ------------samples per study----------------------------
@@ -537,26 +545,34 @@ ggplot(data=sra_studies, aes(x=disease,y=number)) + geom_jitter() + geom_boxplot
   theme(axis.line = element_line(size=1, colour = "black"), panel.grid.major = element_line(colour = "#d3d3d3"), 
         panel.grid.minor = element_blank(), panel.background = element_blank())
 #FigureS9-------sequencing_instrument
-sra_instruments <- read.delim("/Users/sebastian/pubmed_rheuma_HTS/sra_instrument.tsv")
+sra_instruments <- read.delim("/Users/sebastian/pubmed_autoimmune_HTS/sra_instrument.tsv")
 sra_instruments=as.data.frame(sra_instruments)
 sra_instruments$instrument=as.character(sra_instruments$instrument)
 sra_instruments$disease=as.character(sra_instruments$disease)
 sra_instruments$samples=as.integer(sra_instruments$samples)
 sra_instruments[sra_instruments==0] <- NA
 sra_instruments=sra_instruments[complete.cases(sra_instruments),]
-sra_instruments[sra_instruments$disease=="MyoPolyDerma",]$disease="(poly/derma)myositis"
-sra_instruments[sra_instruments$disease=="SysSclerosis",]$disease="Systemic Sclerosis"
-sra_instruments[sra_instruments$disease=="Sjoegren",]$disease="Sjögren's Syndrome"
+sra_instruments[sra_instruments$instrument=="ab solid 3 plus system",]$instrument="AB Solid/GA"
+sra_instruments[sra_instruments$instrument=="genome analyzer",]$instrument="AB Solid/GA"
+sra_instruments[sra_instruments$instrument=="ab solid 4 system",]$instrument="AB Solid/GA"
+sra_instruments[sra_instruments$instrument=="ab 3500xl genetic analyzer",]$instrument="AB Solid/GA"
+sra_instruments[sra_instruments$instrument=="ab 5500xl genetic analyzer",]$instrument="AB Solid/GA"
+sra_instruments[sra_instruments$instrument=="ion s5",]$instrument="Ion S5/Torrent"
+sra_instruments[sra_instruments$instrument=="ion torrent pgm",]$instrument="Ion S5/Torrent"
+sra_instruments[sra_instruments$instrument=="ion torrent proton",]$instrument="Ion S5/Torrent"
+#sra_instruments[sra_instruments$disease=="MyoPolyDerma",]$instrument="(poly/derma)myositis"
+#sra_instruments[sra_instruments$disease=="SysSclerosis",]$instrument="Systemic Sclerosis"
+#sra_instruments[sra_instruments$disease=="Sjoegren",]$disease="Sjögren's Syndrome"
 df_instrument=sra_instruments%>%
   group_by(disease)%>%
   summarise(samples=sum(samples))
 sra_instruments$disease=factor(sra_instruments$disease,levels=df_instrument[order(df_instrument$samples,decreasing = TRUE),]$disease)
 ggplot(data=sra_instruments, aes(x=disease,y=samples,fill=instrument)) + geom_bar(position="stack",stat="identity") +
-  geom_text(data = df_instrument, aes(x=disease,y=9000,label=samples,angle=60),inherit.aes = FALSE) +
+  geom_text(data = df_instrument, aes(x=disease,y=30000,label=samples,angle=60),inherit.aes = FALSE) +
   theme(axis.text.x = element_text(angle = 90, hjust = 1, size=13, colour="black"), 
         axis.title.x = element_blank(), axis.text.y=element_text(colour="black", size = 13), axis.title.y=element_text(colour="black", size = 14)) +
   theme(legend.title = element_blank()) +
-  scale_fill_brewer(palette = "Paired") + scale_y_continuous(breaks=seq(0,9000,1000)) +
+  scale_fill_brewer(palette = "Paired") + scale_y_continuous(breaks=seq(0,30000,5000)) +
   theme(axis.line = element_line(size=1, colour = "black"), panel.grid.major = element_line(colour = "#d3d3d3"), 
         panel.grid.minor = element_blank(), panel.background = element_blank())
 

@@ -1,0 +1,72 @@
+disease	samples	instrument
+IBD	11042	illumina HiSeq
+IBD	0	genome analyzer
+IBD	1248	454 gs
+IBD	453	nextseq 5x0
+IBD	2084	illumina miseq
+IBD	32	ion torrent proton
+IBD	2	unspecified
+IBD	12	illumina hiscansq
+IBD	176	illumina miniseq
+IBD	9	illumina novaseq 6000
+Psoriasis	5597	illumina HiSeq
+Psoriasis	20795	genome analyzer
+Psoriasis	804	454 gs
+Psoriasis	43	nextseq 5x0
+Psoriasis	1	ab solid 3 plus system
+Psoriasis	167	unspecified
+Psoriasis	1234	illumina miseq
+Psoriasis	37	illumina novaseq 6000
+Psoriasis	36	ab 5500xl genetic analyzer
+Psoriasis	45	ab solid 4 system
+Psoriasis	22	ion torrent proton
+Psoriasis	47	bgiseq-500
+Psoriasis	39	ion torrent pgm
+T1D	2765	illumina HiSeq
+T1D	12	genome analyzer
+T1D	25	454 gs
+T1D	404	nextseq 5x0
+T1D	4	ab solid 4 system
+T1D	113	ion torrent pgm
+T1D	249	illumina hiscansq
+T1D	3543	illumina miseq
+T1D	152	illumina novaseq 6000
+T1D	63	ion s5
+T1D	3	pacbio rs ii
+MS	3214	illumina HiSeq
+MS	207	genome analyzer
+MS	156	454 gs
+MS	818	nextseq 5x0
+MS	1519	illumina miseq
+MS	320	ion torrent pgm
+MS	5	ab 3500xl genetic analyzer
+MS	144	illumina hiscansq
+MS	1	unspecified
+MS	205	ion torrent proton
+MS	570	illumina novaseq 6000
+MS	11	complete genomics
+RA	7461	illumina HiSeq
+RA	4	genome analyzer
+RA	97	454 gs
+RA	452	nextseq 5x0
+RA	362	ion torrent proton
+RA	554	illumina miseq
+RA	59	illumina novaseq 6000
+RA	1	bgiseq-500
+Thyreoditis	15	illumina HiSeq
+Thyreoditis	0	genome analyzer
+Thyreoditis	0	454 gs
+Thyreoditis	0	nextseq 5x0
+MyGr	0	illumina HiSeq
+MyGr	0	genome analyzer
+MyGr	0	454 gs
+MyGr	30	nextseq 5x0
+MyGr	72	illumina miseq
+MyGr	4	illumina novaseq 6000
+SLE	1922	illumina HiSeq
+SLE	0	genome analyzer
+SLE	0	454 gs
+SLE	125	nextseq 5x0
+SLE	40	ion torrent pgm
+SLE	155	illumina miseq
+SLE	24	illumina novaseq 6000

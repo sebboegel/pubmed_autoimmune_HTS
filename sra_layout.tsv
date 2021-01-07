@@ -1,0 +1,16 @@
+disease	samples	layout
+IBD	3303	single
+IBD	11755	paired
+Psoriasis	26731	paired
+Psoriasis	2136	single
+T1D	3075	single
+T1D	4258	paired
+MS	4198	single
+MS	2972	paired
+RA	1842	single
+RA	7148	paired
+Thyreoditis	15	paired
+MyGr	76	paired
+MyGr	30	single
+SLE	660	single
+SLE	1606	paired

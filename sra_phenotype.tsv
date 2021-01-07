@@ -1,0 +1,25 @@
+disease	samples	phenotype
+IBD	0	healthy
+IBD	15058	not defined
+IBD	0	disease
+Psoriasis	0	healthy
+Psoriasis	0	not defined
+Psoriasis	28867	disease
+T1D	0	healthy
+T1D	0	not defined
+T1D	7333	disease
+MS	0	healthy
+MS	0	not defined
+MS	7170	disease
+RA	642	healthy
+RA	4733	not defined
+RA	3615	disease
+Thyreoditis	0	healthy
+Thyreoditis	0	not defined
+Thyreoditis	15	disease
+MyGr	0	healthy
+MyGr	65	not defined
+MyGr	41	disease
+SLE	0	healthy
+SLE	0	not defined
+SLE	2266	disease

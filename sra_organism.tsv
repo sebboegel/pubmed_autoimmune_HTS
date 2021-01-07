@@ -1,0 +1,55 @@
+disease	samples	organism
+IBD	1264	mus musculus
+IBD	11374	homo sapiens
+IBD	2	sus scrofa
+IBD	0	rattus norvegicus
+IBD	625	not defined
+IBD	2	bacteria
+IBD	2	pig gut metagenome
+IBD	6	danio rerio
+IBD	967	feces metagenome
+IBD	746	viral metagenome
+IBD	18	bacteroides fragilis
+IBD	22	bacterium
+IBD	30	uncultured bacterium
+Psoriasis	144	mus musculus
+Psoriasis	28663	homo sapiens
+Psoriasis	0	sus scrofa
+Psoriasis	0	rattus norvegicus
+Psoriasis	54	not defined
+Psoriasis	5	unidentified
+Psoriasis	1	placenta metagenome
+T1D	1279	mus musculus
+T1D	5774	homo sapiens
+T1D	0	sus scrofa
+T1D	88	rattus norvegicus
+T1D	169	not defined
+T1D	12	escherichia coli
+T1D	8	uncultured crassphage
+T1D	3	burkholderia pseudomallei bpc006
+MS	2584	mus musculus
+MS	4529	homo sapiens
+MS	0	sus scrofa
+MS	9	rattus norvegicus
+MS	41	not defined
+MS	7	feces metagenome
+RA	330	mus musculus
+RA	8584	homo sapiens
+RA	0	sus scrofa
+RA	35	rattus norvegicus
+RA	41	not defined
+Thyreoditis	0	mus musculus
+Thyreoditis	0	homo sapiens
+Thyreoditis	0	sus scrofa
+Thyreoditis	15	rattus norvegicus
+Thyreoditis	0	not defined
+MyGr	0	mus musculus
+MyGr	86	homo sapiens
+MyGr	0	sus scrofa
+MyGr	0	rattus norvegicus
+MyGr	20	not defined
+SLE	42	mus musculus
+SLE	2224	homo sapiens
+SLE	0	sus scrofa
+SLE	0	rattus norvegicus
+SLE	0	not defined

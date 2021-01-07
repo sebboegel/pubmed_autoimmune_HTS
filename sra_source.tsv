@@ -1,0 +1,34 @@
+disease	samples	source
+IBD	1983	transcriptomic
+IBD	8412	metagenomic
+IBD	4460	genomic
+IBD	203	metatranscriptomic
+Psoriasis	25040	genomic
+Psoriasis	2047	metagenomic
+Psoriasis	1552	transcriptomic
+Psoriasis	228	other
+T1D	2501	transcriptomic
+T1D	4067	metagenomic
+T1D	37	metatranscriptomic
+T1D	18	other
+T1D	710	genomic
+MS	358	genomic
+MS	4482	transcriptomic
+MS	35	metatranscriptomic
+MS	2096	metagenomic
+MS	85	other
+MS	114	genomic single cell
+RA	6898	transcriptomic
+RA	817	genomic
+RA	1125	metagenomic
+RA	1	other
+RA	149	transcriptomic single cell
+Thyreoditis	15	transcriptomic
+MyGr	82	transcriptomic
+MyGr	20	metagenomic
+MyGr	4	transcriptomic single cell
+SLE	371	metagenomic
+SLE	981	genomic
+SLE	825	transcriptomic
+SLE	88	other
+SLE	1	synthetic
